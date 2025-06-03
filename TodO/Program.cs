@@ -57,3 +57,20 @@ foreach (var lista2 in listaTareasRealizadas)
 {
     Console.WriteLine($"Tarea ID: {lista2.TareaID}\nDescripcion: {lista2.Descripcion}\nDuracion: {lista2.Duracion} min");
 }
+/*
+static void buscarpordescripcion(string descripcion, List<Tarea> listaTareasPendientes)
+{
+    
+    Console.WriteLine("Ingrese una palabra clave para buscar la descripcion");
+    string? palabra = Console.ReadLine();
+    for (int i = listaTareasPendientes.Count - 1; i >= 0; i--)
+    {
+        
+    }
+    
+    if (buscar != null)
+    {
+        Console.WriteLine($"Se encontro la tarea\nPalabra clave: {palabra}\nDescripcion Encontrada: {listaTareasPendientes}");
+    }
+}
+*/
