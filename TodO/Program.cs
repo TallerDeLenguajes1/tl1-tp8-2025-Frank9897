@@ -28,11 +28,6 @@ foreach (var tarea in listaTareasPendientes)
     Console.WriteLine($"ID tarea: {tarea.TareaID}\nDescripcion: {tarea.Descripcion}\nDuracion {tarea.Duracion} min");
 }
 
-foreach (var tarea in listaTareasPendientes)
-{
-    Console.WriteLine($"ID tarea: {tarea.TareaID}\nDescripcion: {tarea.Descripcion}\nDuracion {tarea.Duracion} min");
-}
-
 Console.WriteLine("Ingrese la ID de tarea que desea mover a tareas realizadas");
 int opc = int.Parse(Console.ReadLine());
 
@@ -42,7 +37,9 @@ for (int i = listaTareasPendientes.Count - 1; i >= 0; i--)
     if (listaTareasPendientes[i].TareaID == opc)
     {
         listaTareasRealizadas.Add(listaTareasPendientes[i]);
+        Console.WriteLine($"Tarea ID: {opc} Movida con exito");
         listaTareasPendientes.RemoveAt(i);
+        break;
     }
     
 }
@@ -53,14 +50,27 @@ string? pclave = Console.ReadLine();
 buscarpordescripcion(pclave,listaTareasPendientes);
 
 Console.WriteLine("-----------Tareas Pendientes-----------");
-foreach (var lista1 in listaTareasPendientes)
+if (listaTareasPendientes.Count == 0)
 {
-    Console.WriteLine($"Tarea ID: {lista1.TareaID}\nDescripcion: {lista1.Descripcion}\nDuracion: {lista1.Duracion} min");
+    Console.WriteLine("Ninguna");
+}else
+{
+    foreach (Tarea lista1 in listaTareasPendientes)
+    {
+        Console.WriteLine($"Tarea ID: {lista1.TareaID}\nDescripcion: {lista1.Descripcion}\nDuracion: {lista1.Duracion} min");
+    }
 }
+
 Console.WriteLine("-----------Tareas Realizadas-----------");
-foreach (var lista2 in listaTareasRealizadas)
+if (listaTareasRealizadas.Count == 0)
 {
-    Console.WriteLine($"Tarea ID: {lista2.TareaID}\nDescripcion: {lista2.Descripcion}\nDuracion: {lista2.Duracion} min");
+    Console.WriteLine("Ninguna");
+}else
+{
+    foreach (Tarea lista2 in listaTareasRealizadas)
+    {
+        Console.WriteLine($"Tarea ID: {lista2.TareaID}\nDescripcion: {lista2.Descripcion}\nDuracion: {lista2.Duracion} min");
+    }
 }
 
 
