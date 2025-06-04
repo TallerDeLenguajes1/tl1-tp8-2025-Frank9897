@@ -22,7 +22,7 @@ for (int i = 0; i < tareas.Length; i++)
     listaTareasPendientes.Add(tareas[i]);
 }
 
-Console.WriteLine("Tareas Pendientes:");
+Console.WriteLine("-----------Tareas Pendientes-----------");
 foreach (var tarea in listaTareasPendientes)
 {
     Console.WriteLine($"ID tarea: {tarea.TareaID}\nDescripcion: {tarea.Descripcion}\nDuracion {tarea.Duracion} min");
@@ -47,6 +47,11 @@ for (int i = listaTareasPendientes.Count - 1; i >= 0; i--)
     
 }
 
+Console.WriteLine("Ingresar una palabra clave para buscar la descripcion en tareas pendientes");
+string? pclave = Console.ReadLine();
+
+buscarpordescripcion(pclave,listaTareasPendientes);
+
 Console.WriteLine("-----------Tareas Pendientes-----------");
 foreach (var lista1 in listaTareasPendientes)
 {
@@ -57,20 +62,23 @@ foreach (var lista2 in listaTareasRealizadas)
 {
     Console.WriteLine($"Tarea ID: {lista2.TareaID}\nDescripcion: {lista2.Descripcion}\nDuracion: {lista2.Duracion} min");
 }
-/*
+
+
+
+
 static void buscarpordescripcion(string descripcion, List<Tarea> listaTareasPendientes)
 {
-    
-    Console.WriteLine("Ingrese una palabra clave para buscar la descripcion");
-    string? palabra = Console.ReadLine();
-    for (int i = listaTareasPendientes.Count - 1; i >= 0; i--)
+    bool encontrada = false;
+    foreach (Tarea tarea in listaTareasPendientes)
     {
-        
+        if (tarea.Descripcion.Contains(descripcion,StringComparison.OrdinalIgnoreCase))
+        {
+            Console.WriteLine($"-----------Tarea encontrada-----------\nTarea ID: {tarea.TareaID}\nDescripcion: {tarea.Descripcion}\nDuracion: {tarea.Duracion} min\n");
+            encontrada = true;
+        }
     }
-    
-    if (buscar != null)
+    if (!encontrada)
     {
-        Console.WriteLine($"Se encontro la tarea\nPalabra clave: {palabra}\nDescripcion Encontrada: {listaTareasPendientes}");
+        Console.WriteLine("No se encontro ninguna descripcion.");
     }
 }
-*/
